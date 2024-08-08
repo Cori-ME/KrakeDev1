@@ -13,6 +13,16 @@ edad=recuperarInt("txtEdad");
 let estatura;
 estatura=recuperarFlotante("txtEstatura");
 
+ let mensajeBienvenida;
+ mensajeBienvenida="Bienvenido  "+nombre+"  "+apellido;
+mostrarTexto("lblResultado",mensajeBienvenida);
+}
+
+mostrarTexto=function(idComponente,mensaje){
+    let componente;
+    componente=document.getElementById(idComponente);
+    componente.innerText=mensaje;
+
 }
 
 recuperarTexto=function(idComponente){
@@ -36,4 +46,5 @@ recuperarFlotante=function(idComponente){
     return valorFlotante;
     
 }
+
 
