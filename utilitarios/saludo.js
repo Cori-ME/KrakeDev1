@@ -18,7 +18,7 @@ estatura=recuperarFlotante("txtEstatura");
 
  mostrarTexto("lblResultado",mensajeBienvenida);
  mostrarImagen("imgSaludo","./imagenes/hiBts.gif");
- 
+ mostrarTextoEnCaja("txtNombre","");
 
 }
 
@@ -28,6 +28,13 @@ mostrarTexto=function(idComponente,mensaje){
     componente.innerText=mensaje;
 
 }
+mostrarTextoEnCaja=function(idComponente,mensaje){
+    let componente;
+    componente=document.getElementById(idComponente);
+    componente.value=mensaje;
+
+}
+
 mostrarImagen=function(idComponente,rutaImagen){
     let componente;
     componente=document.getElementById(idComponente);
