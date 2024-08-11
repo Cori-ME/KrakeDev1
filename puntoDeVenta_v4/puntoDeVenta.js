@@ -135,7 +135,7 @@ calcularValorTotal = function () {
             Valor a pagar por 20 cerveza corona con 10% de descuento: USD 48.75
         Si funciona, hacer un commit
     */
-        mostrarTexto("lblResumen","El valor a pagar por "+cantidad+"  "+nombreProducto+" con descuento de "+valorDescuento+ ": UDS "+valorTotal);
+        mostrarTexto("lblResumen","El valor a pagar por "+cantidad+"  "+nombreProducto+" con descuento de"+valorDescuento+ ": UDS "+valorTotal);
     } 
 limpiar = function () {
     /*
@@ -144,7 +144,10 @@ limpiar = function () {
         Si funciona, hacer un commit
      */
       
-       
+        mostrarTextoEnCaja("txtProducto","");
+        mostrarTextoEnCaja("txtPrecio","0.0");
+        mostrarTextoEnCaja("txtCantidad","0");
+        mostrarTextoEnCaja("txtPorcentajeDescuento","0");
         
      
     
