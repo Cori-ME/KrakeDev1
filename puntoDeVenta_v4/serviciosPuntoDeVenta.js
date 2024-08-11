@@ -8,11 +8,11 @@ calcularValorDescuento=function(monto,porcentajeDescuento){
 }
 calcularIva=function(monto){
 
- let totalIva;
+ let valorIVA;
 
-  totalIva=(monto*12)/100;
+  valorIVA=(monto * 12)/100;
   
-  return parseFloat(totalIva.toFixed(2))
+  return parseFloat(valorIVA.toFixed(4));
   
 
 }
