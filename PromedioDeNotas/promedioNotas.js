@@ -9,5 +9,11 @@ calcularPromedioNotas=function(){
  let promedioCalificaciones;
  promedioCalificaciones=calcularPromedio(numero1,numero2,numero3);// invocar calcular promedio
  mostrarTexto("lblNotas",promedioCalificaciones);//mostrar en pantalla
- 
+if(promedioCalificaciones>7){
+    mostrarImagen("Imagen","excelente.gif");
+
+}
+else{
+    mostrarImagen("Imagen","insuficiente.gif"); 
+}
 }
