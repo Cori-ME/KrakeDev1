@@ -6,14 +6,37 @@ calcularPromedioNotas=function(){
     let numero3;
     numero3=recuperarFloat("txtNumero3");//recuperar tercera caja de texto
 
- let promedioCalificaciones;
- promedioCalificaciones=calcularPromedio(numero1,numero2,numero3);// invocar calcular promedio
- mostrarTexto("lblNotas",promedioCalificaciones);//mostrar en pantalla
-if(promedioCalificaciones>7){
-    mostrarImagen("Imagen","excelente.gif");
+ let promedio;
+ promedio=calcularPromedio(numero1,numero2,numero3);// invocar calcular promedio
+ mostrarTexto("lblNotas",promedio);//mostrar en pantalla
+if(promedio<5&&promedio>0){
+    let mensaje;
+    mensaje="REPROBADO";
+    mostrarTexto("lblNotas",mensaje)
+    mostrarImagen("Imagen","reprobado.gif");
 
 }
-else{
-    mostrarImagen("Imagen","insuficiente.gif"); 
+else if(promedio>=5&&promedio<=8){
+    let mensaje;
+    mensaje="BUEN TRABAJO";
+    mostrarTexto("lblNotas",mensaje)
+    mostrarImagen("Imagen","buentrabajo.gif");
+}
+else if(promedio>8&&promedio>=10){
+    let mensaje;
+    mensaje="EXCELENTE";
+    mostrarTexto("lblNotas",mensaje)
+    mostrarImagen("Imagen","excelente.gif");
+}else{
+    let mensaje;
+    mensaje="DATOS INCORRECTOS";
+    mostrarTexto("lblNotas",mensaje)
+    mostrarImagen("Imagen","error.gif");
+}
+limpiar=function()
+{
+    mostrarTextoEnCaja("txtNumero1","0.0");
+    mostrarTextoEnCaja("txtNumero2","0.0");
+    mostrarTextoEnCaja("txtNumero3","0.0");
 }
 }
