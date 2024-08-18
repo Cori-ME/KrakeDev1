@@ -18,14 +18,12 @@ mostrarImagen=function(idComponente,rutaImagen){
 
 }
 
-
-
 recuperarTexto=function(idComponente){
     let componente;
-    let valorIngresado;
-    componente=document.getElementById(idComponente);
-    valorIngresado=componente.value;
-    return valorIngresado;
+
+    componente=document.getElementById(idComponente).value;
+    
+    return componente;
 }
 recuperarInt=function(idComponente){
     
