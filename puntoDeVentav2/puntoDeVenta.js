@@ -41,7 +41,7 @@ calcularValorTotal = function () {
      */
   //6. Invocar a calcularValorDescuento y lo que devuelve guardar en la variable valorDescuento
 
-  let valorDescuento = calcularDescuentoPorVolumen(valorSubtotal, cantidad);
+  let valorDescuento = calcularDescuentoPorVolumen (valorSubtotal, cantidad);
 
   //7. Mostrar el resultado en el componente lblDescuento
   mostrarTexto("lblDescuento", valorDescuento);
@@ -107,6 +107,7 @@ calcularValorTotal = function () {
             Valor a pagar por 20 cerveza corona con 10% de descuento: USD 48.75
         Si funciona, hacer un commit
     */
+   
 };
 
 limpiar = function () {
@@ -116,7 +117,7 @@ limpiar = function () {
         Si funciona, hacer un commit
      */
 
-  mostrarTextoEnCaja("txtProducto", "");
+  mostrarTextoEnCaja("txtProducto","");
   mostrarTextoEnCaja("txtPrecio", "0.0");
   mostrarTextoEnCaja("txtCantidad", "0");
 };

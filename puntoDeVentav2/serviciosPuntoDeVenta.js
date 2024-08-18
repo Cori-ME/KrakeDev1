@@ -1,109 +1,108 @@
 calcularValorDescuento = function (monto, porcentajeDescuento) {
+  //
   let valorDescuento;
   valorDescuento = (monto * porcentajeDescuento) / 100;
-
   return valorDescuento;
 };
+
 calcularIva = function (monto) {
   let valorIVA;
-
   valorIVA = (monto * 12) / 100;
-
-  return parseFloat(valorIVA.toFixed(4));
+  return parseFloat(valorIVA.toFixed(3));
 };
+
 calcularSubtotal = function (precio, cantidad) {
-  let valorTotalPagar;
-
-  valorTotalPagar = precio * cantidad;
-
-  return valorTotalPagar;
+  let subtotal;
+  subtotal = precio * cantidad;
+  return subtotal.toFixed(2);
 };
 
-calcularDescuentoPorVolumen = function (subtotal, valorCantidad) {
-  let nombreProducto = recuperarTexto("txtProducto");
-  let precioProducto = recuperarTexto("txtPrecio");
-  let cantidad = recuperarTexto("txtCantidad");
-  let valorDescuento;
-  if (
-    esProductoValido(nombreProducto, "lblProducto") &&
-    esPrecioValido(precioProducto, "lblPrecio") &&
-    esCantidadValida(cantidad, "lblCantidad")
-  ) {
-    if (valorCantidad < 3) {
-      valorDescuento = subtotal;
-    } else if (valorCantidad >= 3 && valorCantidad <= 5) {
-      valorDescuento = subtotal * 0.03;
-    } else if (valorCantidad >= 6 && valorCantidad <= 11) {
-      valorDescuento = subtotal * 0.04;
-    } else if (valorCantidad >= 12) {
-      valorDescuento = subtotal * 0.05;
-    }
-    
-
-    return valorDescuento;
-  }
-};
-esProductoValido = function (nombreProducto, idComponenteError) {
-  let hayErrores = false;
-  if (nombreProducto == "") {
-    mostrarTexto(idComponenteError, "Campo obligatorio");
-    hayErrores = true;
-  }
-  if (nombreProducto.length > 10) {
-    mostrarTexto(idComponenteError, "Nombre supera los 10 digitos");
-    hayErrores = true;
-  }
-  if (hayErrores == false) {
-    mostrarTexto(idComponenteError, "");
-  }
-  return !hayErrores;
-};
-esPrecioValido = function (precioProducto, idComponenteError) {
-  let hayErrores = false;
-
-  if (precioProducto=="") {
-    mostrarTexto(idComponenteError, "Campo obligatorio");
-    hayErrores = true;
-  }
-  if(isNaN(precioProducto)){
-    mostrarTexto(idComponenteError,"DEBE INGRESAR UN NUMERO");
-    hayErrores=true;
-
-   } 
-
-  if (precioProducto <0 || precioProducto > 100) {
-    mostrarTexto(idComponenteError, "SOLO DEBE INGRESAR NUMEROS ENTRE O Y 100");
-    hayErrores = true;
-  }
-  if (hayErrores == false) {
-    mostrarTexto(idComponenteError, "");
-  }
-  return !hayErrores;
-};
-esCantidadValida = function (cantidad, idComponenteError) {
-  let hayErrores = false;
-  if ( cantidad=="") {
-
-    mostrarTexto(idComponenteError, "Campo obligatorio");
-    hayErrores = true;
-  }
-  if(isNaN(cantidad)){
-    mostrarTexto(idComponenteError,"DEBE INGRESAR UN NUMERO");
-    hayErrores=true;
-
-   } 
-
-  if (cantidad <0 || cantidad >50) {
-    mostrarTexto(idComponenteError, "SOLO DEBE INGRESAR NUMEROS ENTRE O Y 50");
-    hayErrores = true;
-  }
-  if (hayErrores == false) {
-    mostrarTexto(idComponenteError, "");
-  }
-  return !hayErrores;
-};
 calcularTotal = function (subtotal, descuento, iva) {
-  let totalPagar;
-  totalPagar = subtotal - descuento + iva;
-  return totalPagar;
+  let total;
+
+  total = subtotal - descuento + iva;
+  return total.toFixed(2);
+};
+
+esProductoValido = function (producto, idComponenteError) {
+    let error = false;
+    
+    if (producto == "") {
+      mostrarTexto(idComponenteError, "Campo obligatorio");
+      error = true;
+    }
+  
+    
+    if (producto.length > 10) {
+      mostrarTexto(idComponenteError, "ingrese hasta 10 digitos");
+      error = true;
+    }
+    if (error == false) {
+      mostrarTexto(idComponenteError, "");
+    }
+    return !error;
+  };
+
+esCantidadValida = function (cantidad, idComponenteError) {
+  let error = false;
+
+  if (cantidad == "") {
+    mostrarTexto(idComponenteError, " campo obligatorio");
+    error = true;
+  }
+  if (isNaN(cantidad)) {
+    mostrarTexto(idComponenteError, "solo puede ingresar la cantidad en numeros");
+    error = true;
+  }
+  if (cantidad < 0 || cantidad > 100) {
+    mostrarTexto(idComponenteError, "solo puede ingresar 100");
+    error = true;
+  }
+  if (error == false) {
+    mostrarTexto(idComponenteError, "");
+  }
+  return !error;
+};
+
+esPrecioValido = function (precio, idComponenteError) {
+    let error = false;
+    if (precio == "") {
+      mostrarTexto(idComponenteError, "Campo obligatorio");
+      error = true;
+    }
+    if (isNaN(precio)) {
+      mostrarTexto(idComponenteError, "solo puede ingresar precio en numeros");
+      error = true;
+    }
+    if (precio < 0 || precio > 50) {
+      mostrarTexto(idComponenteError, "El precio debe estar entre 0 y 50");
+      error = true;
+    }
+    if (error == false) {
+      mostrarTexto(idComponenteError, "");
+    }
+    return !error; 
+  };
+
+calcularDescuentoPorVolumen = function (subtotal, cantidad) {
+  let descuento;
+  let nombreProducto = recuperarTexto("txtProducto");
+  let precio = recuperarTexto("txtPrecio");
+  let valorCantidad = recuperarTexto("txtCantidad");
+  if (
+    esProductoValido(nombreProducto, "lblProducto") &
+    esPrecioValido(precio, "lblPrecio") &
+    esCantidadValida(valorCantidad, "lblCantidad")
+  ) {
+    if (cantidad < 3) {
+      descuento = 0;
+    } else if (cantidad >=3 && cantidad <=5) {
+      descuento = subtotal * 0.03;
+    } else if (cantidad >=6 && cantidad <=11) {
+      descuento = subtotal * 0.04;
+    } else if (cantidad>=12) {
+      descuento = subtotal * 0.05;
+    }
+    return descuento;
+  }
 };
