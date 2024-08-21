@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="placas.css" />
+    <script src="utilitarios.js"></script>
+    <script src="serviciosPlacas.js"></script>
+    <script src="placas.js"></script>
+    <script src="utilitariosCadenas.js"></script>
+  </head>
+  <body>
+    <div class="principal">
+      <div class="contenido">
+        <div class="titulo">Placas</div>
+
+        <div class="ingresoDatos">
+          <div class="tituloCampo">INGRESE PLACA:</div>
+          <div>
+            <input type="text" class="cajaTexto" id="txtPlaca" />
+            <div class="error" id="lblErrorPlaca"></div>
+          </div>
+        </div>
+
+        <div class="botones">
+          <div class="contenedorBoton">
+            <input
+              type="button"
+              value="validar"
+              class="estiloBoton"
+              onclick="validarPlaca();"/>
+          </div>
+          <div class="contenedorBoton">
+            <input
+              type="button"
+              value="LIMPIAR"
+              class="estiloBoton"
+              onclick="limpiar();"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="areaResultado">
+        <div class="resultado">
+          <div>
+            <span class="name">validacion:</span>
+            <span id="lblPlaca">0.0</span>
+          </div>
+          <div>
+            <span class="name">ERRORES DE VALIDACION:</span>
+            <span id="lblErrorPlaca">0.0</span>
+          </div>
+
+          <div>
+            <span class="name">PROVINCIA:</span>
+            <span id="lblProvincia">0.0</span>
+          </div>
+         
+          <div>
+            <span class="name">TIPO:</span>
+            <span id="lblTipo">0.0</span>
+          </div>
+           
+          <div>
+            <span class="name">DIA PICO:</span>
+            <span id="lblDiaPico">0.0</span>
+          </div>
+        
+      </div>
+      </div>
+    </div>
+  </body>
+</html>
