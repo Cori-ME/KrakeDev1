@@ -1,0 +1,124 @@
+body {
+    background-color: black;
+    background-size: cover;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.principal {
+    display: flex;
+    background-color: rgba(240, 248, 255, 0.8);
+    margin-left: 0px;
+    margin-right: 0px;
+    flex-direction: column; /* Cambia la dirección de fila a columna */
+    align-items: center; /* Centra horizontalmente */
+    margin-top: 100px;
+}
+
+/* Ajusta el tamaño del logo */
+.logoEscuela img {
+    max-width: 50%; /* Reduce el tamaño del logo */
+    height: auto;
+    margin-top: -50px; /* Ajusta la distancia desde la parte superior */
+}
+
+.titulo {
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 20px; /* Ajusta la distancia desde la parte superior */
+}
+
+/* Establece el tamaño deseado para las imágenes de piedra, papel y tijera */
+.imagen1 img {
+    max-width: 50px; /* Tamaño deseado para las imágenes */
+    height: auto;
+    margin-top: 10px; /* Ajusta la distancia desde la parte superior */
+    margin-left: 10px; /* Espacio a la izquierda */
+    margin-right: 10px
+}
+
+/* Alinea horizontalmente las imágenes y centra el contenido verticalmente */
+.imagenes {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+.computador img {
+    max-width: 100px; /* Tamaño deseado para las imágenes */
+    height: auto;
+    margin-top: 10px; /* Ajusta la distancia desde la parte superior */
+    margin-left: 10px; /* Espacio a la izquierda */
+    margin-right: 10px
+}
+
+/* Ajusta la distancia del logo hacia arriba */
+.logoEscuela {
+    display: flex;
+    flex-direction: column; /* Alinea el logo verticalmente */
+    align-items: center; /* Centra horizontalmente */
+    justify-content: flex-start; /* Empuja el logo hacia arriba */
+    margin-top: 0px; /* Ajusta la distancia desde la parte superior */
+}
+
+/* Ajusta el espacio entre el título y las imágenes */
+.titulo {
+    margin-bottom: 20px;
+}
+
+.estiloBoton {
+    background-color: #4caf50;
+    border: none;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 5px;
+  }
+  .estiloBoton:hover {
+    background-color: white;
+    color: #4caf50;
+    border: 1px;
+    border-color: #4caf50;
+    border-radius: 5px;
+  }
+  .estiloBoton:active {
+    background-color: #4caf50;
+    border: none;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 5px;
+  }
+  .botones {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: -4px;
+    flex: 1;
+  }
+  .contenedorBoton {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center 
+
+  }
+  .resultado {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-end;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 30px;
+  }
+  .resultado > div {
+    display: flex;
+    justify-content:center;
+    align-items: flex-end;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  

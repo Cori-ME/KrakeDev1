@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="serviciosJuego.js"></script>
+    <script src="juegos.js"></script>
+    <script src="utilitarios.js"></script>
+    <link rel="stylesheet" href="juego.css" />
+  </head>
+  <body>
+    <div class="principal">
+      <!-- Logo de la escuela -->
+      <div class="logoEscuela">
+        <img src="./imagenes/logoKrakeDev.png" width="60%" />
+      </div>
+      
+
+      <div class="titulo">JUEGA PIEDRA PAPEL O TIJERA</div>
+
+      <!-- Imágenes de piedra, papel y tijera -->
+      <div class="imagenes">
+        <div class="imagen1" id="imagenPiedra">
+          <img src="./imagenes/piedra.png" alt="Piedra" onclick='jugar("piedra")'/>
+        </div>
+        <div class="imagen1" id="imagenPapel">
+          <img src="./imagenes/papel.png" alt="Papel" onclick='jugar("papel")' />
+        </div>
+        <div class="imagen1" id="imagenTijera">
+          <img src="./imagenes/tijeras.png" alt="Tijera" onclick='jugar("tijera")' />
+        </div>
+      </div>
+      <div class="computadora">
+        <h2>Selección de la Computadora</h2>
+        <img id="imagenComputador" src="" alt="Imagen de la Computadora">
+    </div>
+    <div class="botones">
+        <div class="contenedorBoton">
+            <input type="button" value="INICIAR NUEVA PARTIDA"
+            class="estiloBoton" onclick="limpiar();" />
+        </div>
+
+    </div>
+      <!-- Área de resultados -->
+      <div class="areaResultado">
+        <div class="resultado">
+          <div>
+            <span class="nombre">RESULTADO DE LA PARTIDA:</span>
+            <span id="lblResultado">XX</span>
+          </div>
+          <div>
+            <span class="nombre">COMPUTADORA:</span> 
+            <span id="lblPuntoComputador">0</span>
+          </div>
+          <div>
+            <span class="nombre">USARIO:</span> 
+            <span id="lblPuntoUsuario">0</span>
+          </div>
+          <div>
+            <span class="nombre">RESULTADO DEL JUEGO:</span>
+            <span id="lblFin">0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
