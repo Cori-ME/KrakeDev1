@@ -10,17 +10,23 @@ jugar = function (seleccionado) {
   mostrarImagen("imagenComputadora", imagen);
   
   // Determinar el ganador entre el jugador y la computadora
-  let resultado = determinarGanador(juego, seleccionado);
+  let resultado = determinarGanador( seleccionado,juego);
 
   // Actualizar el resultado según quien gane, pierda o empate
   if (resultado == 0) {
     mostrarTexto("lblResultado", "EMPATE");
-    puntoUsuario =0;
-    puntoComputador =0;
-  } else if (resultado == 2) {
+    
+  }
+    /*
+  } else if (resultado == 1) {
     mostrarTexto("lblResultado", "GANASTE LA PARTIDA");
     puntoUsuario =puntoUsuario + 1;
-  } else {
+*/
+   else if (resultado == 1) {
+    mostrarTexto("lblResultado", "GANASTE LA PARTIDA");
+    puntoUsuario =puntoUsuario + 1;
+  } 
+  else{
     mostrarTexto("lblResultado", "PERDISTE LA PARTIDA");
     puntoComputador =puntoComputador + 1;
   }
