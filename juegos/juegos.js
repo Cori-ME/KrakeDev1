@@ -1,43 +1,58 @@
 let puntoUsuario = 0;
-
 let puntoComputador = 0;
 
-jugar=function(seleccionado){
-    let resultado;
-    resultado=generarElemento();
-        let rutaImag;
-        rutaImag=generarRuta(resultado);
-        mostrarImagen("imagenComputador",rutaImag);
-       let ganador= determinarGanador(resultado,seleccionado);
-    
-       if(ganador==0){
-          mostrarTexto("lblResultado","EMPATE");
-       }
-    else if(ganador==1){
-        mostrarTexto("lblResultado","GANASTE LA PARTIDA");
-          puntoUsuario=puntoUsuario+1;
-    }
-     else {
-        mostrarTexto("lblResultado","PERDISTE LA PARTIDA","GANO EL COMPUTADOR");
-     puntoComputador=puntoComputador+1;
-    
-    }
-    mostrarTexto("lblPuntoUsuario",puntoUsuario);
-    mostrarTexto("lblPuntoComputador",puntoComputador);
-    if(puntoUsuario==5){
-        mostrarTexto("lblFin","HAZ GANADO");
-     }
-     else if(puntoComputador==5){
-        mostrarTexto("lblFin","TE HA GANADO EL COMPUTADOR");
-     }
-     
-}
-limpiar=function(){
-    puntoUsuario=0;
-    puntoComputador=0;
-    mostrarTexto("lblResultado","");
-    mostrarTexto("lblPuntoUsuario",puntoUsuario);
-    mostrarTexto("lblPuntoComputador",puntoComputador);
-    mostrarImagen("imagenComputador","");
-    mostrarTexto("lblFin","");
-}
+jugar = function (seleccionado) {
+  // Generar la elección de la computadora
+  let juego = generarElemento();
+  
+  // Obtener la imagen correspondiente a la elección de la computadora
+  let imagen = generarRuta(juego);
+  mostrarImagen("imagenComputadora", imagen);
+  
+  // Determinar el ganador entre el jugador y la computadora
+  let resultado = determinarGanador(juego, seleccionado);
+
+  // Actualizar el resultado según quien gane, pierda o empate
+  if (resultado == 0) {
+    mostrarTexto("lblResultado", "EMPATE");
+    puntoUsuario =0;
+    puntoComputador =0;
+  } else if (resultado == 2) {
+    mostrarTexto("lblResultado", "GANASTE LA PARTIDA");
+    puntoUsuario =puntoUsuario + 1;
+  } else {
+    mostrarTexto("lblResultado", "PERDISTE LA PARTIDA");
+    puntoComputador =puntoComputador + 1;
+  }
+
+  // Mostrar el puntaje actualizado
+  mostrarTexto("lblPuntoComputadora", puntoComputador);
+  mostrarTexto("lblPuntoUsuario", puntoUsuario);
+
+  // Comprobar si alguien ha ganado el juego (5 puntos)
+  if (puntoUsuario == 5) {
+    mostrarTexto("lblFin", "GANASTE EL JUEGO");
+  } 
+  if (puntoComputador == 5) {
+    mostrarTexto("lblFin", "COMPUTADOR HA VENCIDO");
+  }
+};
+
+
+limpiar = function () {
+  // Reinicia los puntos de la computadora y el usuario
+  puntoComputador = 0;
+  puntoUsuario = 0;
+
+  // Limpia los textos de resultados en la interfaz
+  mostrarTexto("lblResultado", "");
+  mostrarTexto("lblFin", "");
+  mostrarTexto("lblPuntoComputadora", puntoComputador);
+  mostrarTexto("lblPuntoUsuario", puntoUsuario);
+
+  // Limpia la imagen de la computadora
+  mostrarImagen("imagenComputadora", "");
+
+  // Aquí cerramos la función correctamente
+
+};

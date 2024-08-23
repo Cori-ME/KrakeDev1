@@ -29,7 +29,7 @@ body {
 }
 
 /* Establece el tamaño deseado para las imágenes de piedra, papel y tijera */
-.imagen1 img {
+.imagen img {
     max-width: 50px; /* Tamaño deseado para las imágenes */
     height: auto;
     margin-top: 10px; /* Ajusta la distancia desde la parte superior */
