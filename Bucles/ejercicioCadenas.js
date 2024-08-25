@@ -35,4 +35,31 @@ ejecutarPrueba2=function(){
  mostrarTexto("lblResultado",invertir);
 
  }
- 
+
+ buscarLetra=function(cadena,letra){
+    let letraIterada;
+    let existeLetra=false;
+    for(let i=0;i<cadena.length;i++){
+          letraIterada=cadena.charAt(i);
+   if(letraIterada==letra){
+             existeLetra=true;
+             console.log("existe")
+   } else {
+    console.log("no existe");
+   }
+   
+        }
+
+ }
+
+ ConstarMayusculas=function(){
+   letra;
+   let ConstarMayusculas=0;
+   for(i=0;i<cadena.length;i++){
+      letra=cadena.charAt(i);
+      if(esMayuscula(letra)){
+         ConstarMayusculas++;
+      }
+
+   }
+ }
