@@ -1,9 +1,9 @@
-numeroAleatorio=[];
+ let numeroAleatorio=[];
 crearNumeroAleatorio=function(){
     let aleatorios;
-    aleatorios=Math.random(1-100);
-    numeroMultiplicado=aleatorios*3;
-    let aleatorioEntero=parseInt(aleatorios);
+    aleatorios=Math.random();
+    numeroMultiplicado=aleatorios*100;
+    let aleatorioEntero=Math.floor(numeroMultiplicado);// Redondea hacia abajo para obtener un entero
     let valorAleatorio;
     valorAleatorio=aleatorioEntero+1;
 
@@ -14,10 +14,36 @@ generarAleatorio=function(){
     let aleatorio=0;
     let aleatorioUsuario;
     aleatorioUsuario=recuperarInt("txtAleatorio");
-    if(aleatorio>5||aleatorio<20){
-          validacion=true;
+    if(aleatorio<5&&aleatorio<20){
+          validacion=false;
     }
     for(i=0;i<aleatorioUsuario;i++){
-        console.log("numeros Aleatorios",i);
+        
+        mostrarTexto("lblAleatorio",i);
+
+       let aleat;
+       aleat =crearNumeroAleatorio(aleatorioUsuario);
+       numeroAleatorio.push(aleat);
+      
     }
+    mostrarResultados();
 }
+mostrarResultados=function(arregloNumeros){
+   
+    let cmpTabla=document.getElementById("divTabla");
+    let contenidoTabla="<table><tr><th>ALEATORIO</th></tr>";
+    let miAleatorio;
+    for(let i=0;i<numeroAleatorio.length;i++){
+      miAleatorio=numeroAleatorio[i];
+      contenidoTabla+="<tr><td>";
+      contenidoTabla+=miAleatorio;
+      contenidoTabla+="</tr></td>";
+
+    }
+    contenidoTabla+="</table>";
+    cmpTabla.innerHTML=contenidoTabla;
+
+
+}
+
+
