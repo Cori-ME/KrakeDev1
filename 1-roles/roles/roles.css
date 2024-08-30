@@ -1,4 +1,5 @@
-body{
+
+.body{
       background-size: cover;
     margin-left: 0px;
     margin-right: 0px;
@@ -79,16 +80,14 @@ body{
     justify-content: center;
 }
 tbody tr:nth-child(odd) {
-    background-color: #908efc;
+    background-color: #fc8ee6;
   }
   
   tbody tr:nth-child(even) {
-    background-color: #6a51cf;
+    background-color: #cf5181;
   }
   
-  tbody tr {
-    background-image: url(noise.png);
-  }
+  
   
   table {
     background-color: #0b0c0c;
@@ -185,4 +184,32 @@ tbody tr:nth-child(odd) {
     color:red;
     font-style: italic;
     font-size: 14px;
+}
+#tablaEmpleados{
+    width:100%;
+    border-collapse: collapse;
+}
+/* estilos para las celdas y los bordes*/
+th,td{
+    padding: 14px;
+    border: 1px solid #ba2a9b;
+    text-align: left;
+}
+/*estilos para el encabezado */
+th{
+    background-color: #5a0b51;
+    color: #0b0c0c;
+}
+/*estilos para las filas alternativas */
+
+tr:nth-child(even){
+    background-color: rgb(171, 97, 208);
+}
+tr:hover {
+    background-color: #18011645;
+    transition: background-color 0.3s ease;
+}
+#tablaEmpleados{
+ border-radius: 10px;
+ overflow: hidden;/* para asegurar los bordes  redondeados se aplican correctamente*/
 }
