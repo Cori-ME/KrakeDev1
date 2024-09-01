@@ -197,6 +197,22 @@ mostrarOpcionResumen=function(){
 
         
 }
+buscarPorRol=function(){
+   let  valorIngresado;
+   valorIngresado=recuperarTexto("txtBusquedaCedulaRol");
+
+   let rol=buscarEmpleado(valorIngresado);
+   
+   if(rol!==null){
+    mostrarTexto("infoCedula" ,rol.cedula);
+   
+    mostrarTexto("infoSueldo", rol.sueldo);
+    mostrarTexto("infoNombre",rol.nombre);
+   }else{
+    alert("no existe el empleado");
+   }
+
+}
 
 function limpiar() {
     mostrarTextoEnCaja("txtCedula", "");
