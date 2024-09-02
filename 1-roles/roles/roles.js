@@ -15,7 +15,7 @@ let empleados = [
     sueldo: 800.0,
   },
 ];
-
+let roles=[];
 habilitar = function () {
   habilitarComponente("txtCedula");
   habilitarComponente("txtNombre");
@@ -172,6 +172,9 @@ mostrarOpcionRol = function () {
   mostrarComponente("divRol");
   ocultarComponente("divEmpleado");
   ocultarComponente("divResumen");
+  mostrarRoles()
+
+  desahabilitar();
 };
 mostrarOpcionResumen = function () {
   mostrarComponente("divResumen");
@@ -194,8 +197,8 @@ buscarPorRol = function () {
   }
 };
 calcularAporteEmpleado = function (sueldo) {
-  let calcularAporte = (sueldo * 9.45) / 100;
-  return calcularAporte;
+  let aporte = (sueldo * 9.45) / 100;
+  return aporte;
 };
 calcularValorAPagar = function (sueldo, aporteIes, decuento) {
   let calcularValor = sueldo - aporteIes - decuento;
@@ -211,11 +214,12 @@ calcularRol = function () {
   if (descuento >= 0 && descuento <= sueldoE){  
      
 
-    let aporteI = calcularAporteEmpleado(sueldoE);
-    mostrarTexto("infoIESS", aporteI.toFixed(2));
+    let aportes = calcularAporteEmpleado(sueldoE);
+    mostrarTexto("infoIESS", aportes.toFixed(2));
    
-    let valorA = calcularValorAPagar(sueldoE, aporteI, descuento);
+    let valorA = calcularValorAPagar(sueldoE, aportes, descuento);
     mostrarTexto("infoPago", valorA.toFixed(2));
+    habilitar();
     
   }  else {
     // Mostrar un mensaje de error si el descuento es inválido
@@ -223,7 +227,105 @@ calcularRol = function () {
    
   }
 };
+buscarRol=function(cedula){
+    for(i=0;i<roles.length;i++){
+        let rol=roles[i];
+        if(rol.cedula==cedula){
+        
+        return rol
+    }else{
+        return null;
+    }
+}
+}
+agregarRol=function(rol){
 
+let rolExiste=buscarRol(rol.cedula);
+if(!rolExiste){
+    roles.push(rol);
+    alert("rol agregado")
+}else{
+    alert("ya existe alguien con la misma cedula");
+}
+}
+calcularAporteEmpleador=function(sueldo){
+let aporteEmpleador=(sueldo*11.15)/100;
+return aporteEmpleador;
+}
+guardarRol=function(){
+   let valorAPagar=recuperarTextoDiv("infoPago"); 
+   let aporteIes=recuperarTextoDiv("infoIESS");
+   let valorNombre=recuperarTextoDiv("infoNombre");
+   let valorCedula=recuperarTextoDiv("infoCedula");
+   let valorSueldo=recuperarTextoDiv("infoSueldo");
+    let aporteEmpleador=calcularAporteEmpleador(valorSueldo);
+rolNuevo={}
+rolNuevo.valorCedula = valorCedula;
+rolNuevo.valorNombre = valorNombre;
+rolNuevo.valorSueldo = valorSueldo;
+rolNuevo. valorAPagar= valorAPagar;
+rolNuevo.aporteIes = aporteIes;
+rolNuevo.aporteEmpleador=aporteEmpleador;
+
+
+
+
+agregarRol(rolNuevo);
+alert("excelente");
+desahabilitar();
+} 
+
+mostrarRoles=function(){
+let cmpTabla = document.getElementById("tablaResumen");
+  let contenidoTabla =
+    "<table><tr>" +
+    "<th> CEDULA</th>" +
+    "<th> NOMBRE</th>" +
+    "<th> VALOR A PAGAR</th>" +
+    "<th> APORTE EMPLEADO</th>" +
+    "<th> APORTE EMPLEADOR</th>" +
+    "</tr>";
+  let elementoRol;
+  for (let i = 0; i < roles.length; i++) {
+    elementoRol = roles[i];
+    contenidoTabla +=
+      "<tr><td>" +
+      elementoRol.cedula +
+      "</td>" +
+      "<td>" +
+      elementoRol.nombre +
+      "</td>" +
+      "<td>" +
+      elementoRol.valorAPagar +
+      "</td>" +
+      "<td>" +
+      elementoRol.aporte +
+      "</td>" +
+      "</tr>"
+      elementoRol.aporteEmpleador +
+      "</td>" +
+      "</tr>";
+  }
+  contenidoTabla += "</table>";
+  cmpTabla.innerHTML = contenidoTabla;
+  mostrarTotales();
+};
+mostrarTotales=function(){
+    let totalEmpleado = 0;
+  let totalEmpleador = 0;
+  let totalPagar = 0;
+  for(i=0;i<roles.length;i++){
+    totalEmpleador+=roles[i].aporteIes;
+    totalEmpleado+=roles[i].aporte;
+    totalPagar+=roles[i].totalPagar;
+
+  }
+  mostrarTexto("infoTotalPago", valorAPagar);
+  mostrarTexto("infoAporteEmpresa", totalEmpleador);
+  mostrarTexto("infoAporteEmpleado", totalEmpleado);
+let totalNomina=totalEmpleado + totalEmpleador+ totalPagar;
+mostrarTexto("infoTotalNomina", totalNomina);
+}
 function limpiar() {
   mostrarTextoEnCaja("txtCedula", "");
   mostrarTextoEnCaja("txtNombre", "");
