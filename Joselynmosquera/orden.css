@@ -1,0 +1,174 @@
+body {
+    background-color: rgb(230, 179, 217);
+    background-size: cover;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  
+  .principal {
+    display: flex;
+    flex:1;
+    background-color: rgba(176, 210, 240, 0.8);
+    margin-left: 300px;
+    margin-right: 300px;
+    flex-direction:row;
+    justify-content: center;
+    margin-top: 100px;
+  }
+  .titulo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 20px;
+    font-size: 30px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  .logoEscuela {
+    display: flex;
+    flex: 1;
+    justify-content:space-between;
+    align-items:flex-start;
+    flex-direction:row;
+  }
+  .areaTabla {
+    display: flex;
+    flex:1;
+    flex-direction:row-reverse;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .imagen {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+  }
+  .estiloBoton {
+    background-color: #4caf50;
+    border: none;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 10px;
+  }
+  .estiloBoton:hover {
+    background-color: white;
+    color: #4caf50;
+    border: 1px;
+    border-color: #4caf50;
+    border-radius: 5px;
+  }
+  .estiloBoton:active {
+    background-color: #4caf50;
+    border: none;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 5px;
+  }
+  .botones {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    margin-top: 30px;
+    flex: 1;
+  }
+  .contenedorBoton {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items:flex-end;
+  
+  }
+  
+  .contenedorBoton input[type= "button"] {
+      width: 100%; 
+      max-width: 180px; 
+    }
+  
+  .cajaTexto {
+    border-radius: 4px;
+    border-color: #4caf50;
+  max-width:700px;
+    font-size: 20px;
+    color: rgb(85, 83, 83);
+  }
+  .ingresoDatos {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    
+    justify-content: space-between;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .tituloCampo {
+    font-size: 30px;
+    display: flex;
+    flex-direction:row-reverse;
+    justify-content: center;
+    align-items: flex-start;
+    margin-right: 20px;
+    height: 100%;
+  }
+  
+  .areaTabla {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-end;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 30px;
+  }
+  .areaTabla > div {
+    display: flex;
+    justify-content:center;
+    align-items: flex-end;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .imagenResultado {
+    display: flex;
+    flex: 6;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+  }
+  .error {
+    color: red;
+    font-style: italic;
+    font-size: 16px;
+  }
+  /* Estilo general para la tabla */
+  .areaTabla{
+    width:100%;
+    border-collapse: collapse;
+}
+/* estilos para las celdas y los bordes*/
+th,td{
+    padding: 14px;
+    border: 1px solid #ba2a9b;
+    text-align: left;
+}
+/*estilos para el encabezado */
+th{
+    background-color: #5a0b51;
+    color: #0b0c0c;
+}
+/*estilos para las filas alternativas */
+
+tr:nth-child(even){
+    background-color: rgb(171, 97, 208);
+}
+tr:hover {
+    background-color: #18011645;
+    transition: background-color 0.3s ease;
+}
+.areaTabla{
+ border-radius: 10px;
+ overflow: hidden;/* para asegurar los bordes  redondeados se aplican correctamente*/
+
+}

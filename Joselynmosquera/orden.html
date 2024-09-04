@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="orden.css" />
+        <script src="utilitarios.js"></script>
+        <script src="orden.js"></script>
+    </head>
+    <body onload="mostrarPersonas();">
+
+        <div class="principal">
+            <div class="logoEscuela">
+                <img src="logoKrakeDev.png" width="60%" />
+            </div>
+    
+            <div class="contenido">
+                <div class="titulo">
+                   PERSONAS 
+                </div>
+    
+                
+                <div class="ingresoDatos">
+                    <div class="tituloCampo">
+                        NOMBRE
+                    </div>
+                    <div>
+                        <input type="text" class="cajaTexto" id="txtNombre"/>
+                        <div class="error" id="lblNombre"></div>
+                    </div>
+                </div>
+               
+                <div class="ingresoDatos">
+                    <div class="tituloCampo">
+                       EDAD
+                    </div>
+                    <div>
+                        <input type="text" class="cajaTexto" id="txtEdad"/>
+                        <div class="error" id="lblEdad"></div>
+                    </div>
+                </div>
+                
+                <div></div>
+                <div class="botones">
+                    <div class="contenedorBoton">
+                        <input type="button" value="GUARDAR"
+                         class="estiloBoton" onclick="agregarPersona();" />
+                         </div>
+                         <div></div>
+                         <div class="contenedorBoton">
+                            <input type="button" value="ENCONTRAR MAYOR"
+                             class="estiloBoton" onclick="determinarMayor();" />
+                             </div>
+                             <div></div>
+                             <div class="contenedorBoton">
+                                <input type="button" value="ENCONTRAR MENOR"
+                                 class="estiloBoton" onclick="determinarMenor();" />
+                                 </div>
+                                 
+                        </div>
+                        
+                    </div></div></div>
+                    <div id="divTabla" class="areaTabla"></div>
+
+                         <div id="lblPersona">?</div>
+
+                    
+            
+        
+    </body>
+            
+</html>
