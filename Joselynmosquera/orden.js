@@ -1,10 +1,10 @@
-let validacion=true;
+
 let personas = [
     { nombre: "Marcos", edad: 18 },
     { nombre: "Roberto", edad: 15 },
     { nombre: "Kate", edad: 25 },
     { nombre: "Diana", edad: 12 },
-    { nombre: "Benja", edad: 15 }
+    { nombre: "Benja", edad: 5 }
 ];
 
 agregarPersona=function(){
@@ -12,20 +12,21 @@ agregarPersona=function(){
     let nombre=recuperarTexto("txtNombre");
     let edad=recuperarInt("txtEdad");
 
-    if(nombre.length>=3){
-        validacion=true;
-        mostrarTexto("lblNombre","");
+    if(nombre.length<=3){
+        
+        mostrarTexto("lblError1","");
 
     }else{
-        mostrarTexto("lblNombre","Deberia tener al menos 3 caracteres");
+        mostrarTexto("lblError1","Deberia tener al menos 3 caracteres");
 
     }
+
     if(edad>=0&&edad<=100){
-        validacion=true;
-        mostrarTexto("lblEdad","");
+        
+        mostrarTexto("lblError2","");
 
     }else{
-        mostrarTexto("lblEdad","Deberia ser un numero entre 0 y 100");
+        mostrarTexto("lblError2","Deberia ser un numero entre 0 y 100");
 
     }
    let nuevaPersona={}
@@ -58,52 +59,33 @@ mostrarPersonas=function(){
     contenidoTabla+= "</table>";
     cmpTabla.innerHTML= contenidoTabla;
 }
-buscarMayor=function(){
+encontrarMayor=function(){
     
-    let personaMayor=[0];
-    let comparaPersona=personas.length;
-    for(let i=0;i<personas.length;i++){
-        comparaPersona=personas[i];
-    }
-    if(comparaPersona.edad>personaMayor.edad){
-        validacion=true;
-             personaMayor==comparaPersona; 
-             alert("PERSONA MAYOR ENCONTRADA")   
-    }else if(personaMayor.edad>comparaPersona.edad){
-        comparaPersona==personaMayor; 
-        validacion=true;
-
-    }else{
-        alert("NO SE ENCUENTRA A LA PERSONA MAYOR");
+    let personaMayor=personas[0];
+    
+    for(let i=1;i<personas.length;i++){
+        personaMayor=personas[i];
+    
+    if(personas[i].edad>personaMayor.edad){
+       
+             personaMayor=personas[i]; 
+             
+    
 
     }
 
 }
-encontrarMayor=function(){
-   let personaMayor=0;
-   let elementoPersona;
-   for(let i=1;i<personas.length;i++) {
-    elementoPersona=personas[i];
-    console.log("EL NOMBRE Y SU EDAD ES:",elementoPersona);
-     personaMayor=personas[0];;
-   
-    
-    if(personaMayor.edad>=personas[i].edad){
-        validacion=true;
-             personaMayor==personas[i]; 
-             alert("PERSONA MAYOR ENCONTRADA",personaMayor)   
-    
+if(personaMayor){
 
-    }else{
-        alert("NO SE ENCUENTRA A LA PERSONA MAYOR");
-
-    }
-   }
+    mostrarTexto("lblResultado","PERSONA MAYOR ENCONTRADA "  + personaMayor);
+    
+}
 return personaMayor;
 }
+
 determinarMayor=function(){
    let mayor= encontrarMayor();
-   alert("EL NOMBRE  Y SU EDAD ES:" ,mayor);
+   mostrarTexto("lblResultado","EL MAYOR ES:" + mayor.edad+"" + mayor.nombre);
    
 }
 encontrarMenor=function(){
@@ -111,22 +93,23 @@ encontrarMenor=function(){
     let elementoPersona;
     for(let i=1;i<personas.length;i++) {
      elementoPersona=personas[i];
-     console.log("EL NOMBRE Y SU EDAD ES:",elementoPersona);
+     
       
-     if(personaMenor.edad>=personas[i].edad){
+     if(personas[i].edad>=personaMenor.edad){
          validacion=false;
               personaMenor==personas[i]; 
               alert("PERSONA MENOR ENCONTRADA",personaMenor)   
      
-     }else{
-         alert("NO SE ENCUENTRA A LA PERSONA MAYOR");
- 
      }
+    }
+    if(personaMenor){
+
+        mostrarTexto("lblResultado","PERSONA MENOR ENCONTRADA "  + personaMenor);
+        
     }
  return personaMenor;
  }
  determinarMenor=function(){
-    let menor= encontrarMenor();
-    alert("EL NOMBRE  Y SU EDAD ES:" ,menor);
-    
+    let menor= encontrarMenor(personas);
+    mostrarTexto("lblResultado","EL MENOR ES:" + menor.edad+ "" + menor.nombre);
  }
